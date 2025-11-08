@@ -1,20 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Spline from '@splinetool/react-spline';
 import { Rocket, ArrowRight, MousePointer2 } from 'lucide-react';
 
 const Hero3D = () => {
+  const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0">
-        <Spline
-          scene="https://prod.spline.design/7m4PRZ7kg6K1jPfF/scene.splinecode"
-          style={{ width: '100%', height: '100%' }}
-        />
+        {!error && (
+          <Spline
+            scene="https://prod.spline.design/7m4PRZ7kg6K1jPfF/scene.splinecode"
+            style={{ width: '100%', height: '100%' }}
+            onLoad={() => setLoaded(true)}
+            onError={() => setError(true)}
+          />
+        )}
+        {error && (
+          <div className="w-full h-full bg-gradient-to-br from-indigo-900 via-purple-900 to-black" />
+        )}
       </div>
 
       {/* Gradients that don't block interaction */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/10 to-black/80" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/80" />
+
+      {/* Loading shimmer so there is always visible content */}
+      {!loaded && !error && (
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="animate-pulse text-white/70 text-sm md:text-base bg-white/5 px-4 py-2 rounded-full ring-1 ring-white/10 backdrop-blur">
+            Loading cosmic scene…
+          </div>
+        </div>
+      )}
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 ring-1 ring-white/20 backdrop-blur">
