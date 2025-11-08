@@ -1,20 +1,20 @@
 import React from 'react';
 import Spline from '@splinetool/react-spline';
-import { Rocket, ArrowRight } from 'lucide-react';
+import { Rocket, ArrowRight, MousePointer2 } from 'lucide-react';
 
 const Hero3D = () => {
   return (
-    <section className="relative min-h-[90vh] w-full flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0">
         <Spline
-          scene="https://prod.spline.design/EF7JOSsHLk16Tlw9/scene.splinecode"
+          scene="https://prod.spline.design/7m4PRZ7kg6K1jPfF/scene.splinecode"
           style={{ width: '100%', height: '100%' }}
         />
       </div>
 
-      {/* Soft gradient vignettes that don't block interaction */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/70" />
+      {/* Gradients that don't block interaction */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/10 to-black/80" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/80" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
         <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 ring-1 ring-white/20 backdrop-blur">
@@ -22,11 +22,10 @@ const Hero3D = () => {
           <span className="text-sm font-medium tracking-wide">OrbitWeb presents • Web4Good Campaign</span>
         </div>
         <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
-          Free Websites for Small Non‑Profit Heroes
+          Launch your mission into the cosmic web
         </h1>
         <p className="mt-5 text-base md:text-lg text-white/80 max-w-2xl mx-auto">
-          We build beautiful, fast, and accessible sites—at zero cost—for community changemakers.
-          Elevate your mission with future‑ready design.
+          Free, immersive websites for small non‑profits—crafted with performance, accessibility, and heart.
         </p>
         <div className="mt-8 flex items-center justify-center gap-4">
           <a
@@ -41,6 +40,10 @@ const Hero3D = () => {
           >
             How it Works
           </a>
+        </div>
+        <div className="mt-10 flex items-center justify-center text-white/70 gap-2">
+          <MousePointer2 className="w-4 h-4" />
+          <span className="text-sm">Interact with the scene • Scroll to explore the story</span>
         </div>
       </div>
     </section>

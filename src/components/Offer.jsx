@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, BadgeCheck } from 'lucide-react';
+import { CheckCircle2, BadgeCheck, ShieldCheck } from 'lucide-react';
 
 const perks = [
   'Custom design tailored to your mission',
@@ -10,7 +10,8 @@ const perks = [
 
 const Offer = () => {
   return (
-    <section id="offer" className="relative bg-gradient-to-b from-black to-[#0a0114] text-white py-24">
+    <section id="offer" className="relative bg-gradient-to-b from-[#06030c] via-[#0b0615] to-[#0a0114] text-white py-28">
+      {/* holographic border card */}
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div>
           <div className="inline-flex items-center gap-2 text-purple-300 font-semibold">
@@ -32,7 +33,10 @@ const Offer = () => {
         </div>
         <div className="relative">
           <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 backdrop-blur-lg">
-            <h3 className="text-xl font-bold">Eligibility</h3>
+            <div className="inline-flex items-center gap-2 text-emerald-300">
+              <ShieldCheck className="w-5 h-5" />
+              Eligibility
+            </div>
             <p className="mt-2 text-white/80 text-sm">
               Available to registered non‑profits with teams of under 15 people. Priority for organizations focused on community health, education, environment, and arts.
             </p>
